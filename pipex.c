@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 22:00:56 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/11 22:37:26 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/12 00:48:58 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv, char **env)
 		ft_error();
 	if (pipe(pipex.pipe) == -1)
 		ft_error();
-	pipex.path = ft_path(env);
+	pipex.paths = ft_split(ft_path(env), ':');
 	pipex.child1 = fork();
 	if (pipex.child1 == 0)
 		ft_infile_child(&pipex, argv, env);
