@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:20:53 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/12 00:42:42 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/12 02:08:50 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	while (s1[++i])
 		str[i] = s1[i];
+	str[i++] = '/';
 	while (s2[++j])
 		str[i + j] = s2[j];
 	str[i + j] = '\0';

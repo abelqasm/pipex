@@ -1,6 +1,6 @@
 SRCS = pipex.c \
 	pipex_child.c \
-	./srcs/ft_error.c \
+	./srcs/ft_errors.c \
 	./srcs/ft_split.c \
 	./srcs/ft_strncmp.c \
 	./srcs/ft_strjoin.c
@@ -15,7 +15,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	make clean
 
 clean :
 	rm -rf *.o srcs/*.o

@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:11:32 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/12 01:00:06 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/12 03:51:51 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 char	*ft_get_cmd(char **paths, char *cmd)
 {
 	char	*cmd_path;
-	char	*tmp;
 
 	while (*paths)
 	{
-		tmp = ft_strjoin(*paths, "/");
-		cmd_path = ft_strjoin(tmp, cmd);
-		free(tmp);
+		cmd_path = ft_strjoin(*paths, cmd);
 		if (access(cmd_path, F_OK) == 0)
 			return (cmd_path);
 		free(cmd_path);
