@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:21:33 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/13 03:02:28 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:37:27 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_pipex_bonus(t_pipex *pipex, char **argv, char **env)
 		i++;
 	}
 	i = -1;
+	ft_close_pipes(pipex);
 	while (++i < pipex->cmd_nbr)
 		waitpid(pipex->pids[i], NULL, 0);
 }
@@ -52,6 +53,12 @@ int	main(int argc, char **argv, char **env)
 	int		i;
 
 	i = 0;
+	if (argc < 5)
+		ft_argmt_error();
+	pipex.file1 = open(argv[1], O_RDONLY);
+	pipex.file2 = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
+	if (pipex.file1 == -1 || pipex.file2 == -1)
+		ft_error();
 	pipex.cmd_nbr = argc - 3;
 	pipex.pipe = malloc(sizeof(int *) * (pipex.cmd_nbr - 1));
 	while (i < pipex.cmd_nbr - 1)
@@ -61,10 +68,6 @@ int	main(int argc, char **argv, char **env)
 			ft_error();
 		i++;
 	}
-	pipex.file1 = open(argv[1], O_RDONLY);
-	pipex.file2 = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
-	if (pipex.file1 == -1 || pipex.file2 == -1)
-		ft_error();
 	pipex.paths = ft_split(ft_path(env), ':');
 	ft_pipex_bonus(&pipex, argv, env);
 	return (0);

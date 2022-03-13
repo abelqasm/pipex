@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 03:05:55 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/13 03:08:11 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:34:00 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_close_pipes(t_pipex *pipex)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < pipex->cmd_nbr - 1)
 	{
