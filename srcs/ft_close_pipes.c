@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.c                                        :+:      :+:    :+:   */
+/*   ft_close_pipes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 22:48:12 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/12 17:40:18 by abelqasm         ###   ########.fr       */
+/*   Created: 2022/03/13 03:05:55 by abelqasm          #+#    #+#             */
+/*   Updated: 2022/03/13 03:08:11 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../pipex_bonus.h"
 
-void	ft_error(void)
+void	ft_close_pipes(t_pipex *pipex)
 {
-	perror("Error");
-	exit(1);
-}
-
-void	ft_argmt_error(void)
-{
-	write(1, "Wrong number of arguments\n", 26);
-	exit(0);
+	int	i;
+	
+	i = 0;
+	while (i < pipex->cmd_nbr - 1)
+	{
+		close(pipex->pipe[i][0]);
+		close(pipex->pipe[i][1]);
+		i++;
+	}
 }
