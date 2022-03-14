@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:27:56 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 01:07:28 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/14 01:17:27 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../pipex_bonus.h"
 
 char	*get_next_line(int fd);
-int 	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 char	*ft_strjoin_line(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 int		ft_srch_n(const char *s);

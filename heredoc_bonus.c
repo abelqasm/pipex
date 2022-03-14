@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 22:46:33 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 01:08:24 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:17:44 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_infile_child_heredoc(t_heredoc *heredoc, char **argv, char **env)
 	path = ft_find_cmd(heredoc->paths, cmd[0]);
 	dup2(heredoc->pipe[1], 1);
 	close(heredoc->pipe[0]);
-	dup2(0, 0);
+	dup2(heredoc->tmp_file, 0);
 	if (!path)
 		ft_error();
 	execve(path, cmd, env);
@@ -35,9 +35,9 @@ void	ft_outfile_child_heredoc(t_heredoc *heredoc, char **argv, char **env)
 
 	cmd = ft_split(argv[4], ' ');
 	path = ft_find_cmd(heredoc->paths, cmd[0]);
-	dup2(heredoc->pipe[1], 1);
-	close(heredoc->pipe[0]);
-	dup2(heredoc->tmp_file, 0);
+	dup2(heredoc->pipe[0], 0);
+	close(heredoc->pipe[1]);
+	dup2(heredoc->file, 1);
 	if (!path)
 		ft_error();
 	execve(path, cmd, env);
@@ -69,8 +69,8 @@ void	ft_heredoc(int argc, char **argv, char **env)
 	if (argc != 6)
 		ft_argmt_error();
 	heredoc.paths = ft_split(ft_path(env), ':');
-	heredoc.file = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
-	heredoc.tmp_file = open("heredoc_tmp", O_RDWR | O_CREAT | O_TRUNC, 0644);
+	heredoc.file = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	heredoc.tmp_file = open(argv[1], O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (heredoc.file == -1 || heredoc.tmp_file == -1)
 		ft_error();
 	if (pipe(heredoc.pipe) == -1)
@@ -80,11 +80,13 @@ void	ft_heredoc(int argc, char **argv, char **env)
 		write(1, "pipe heredoc> ", 14);
 		heredoc.str = get_next_line(0);
 		if (!ft_strcmp(heredoc.str, argv[2]))
-			break;
+			break ;
 		write(heredoc.tmp_file, heredoc.str, ft_strlen(heredoc.str));
 		free(heredoc.str);
 	}
-	free(heredoc.str);
+	close(heredoc.tmp_file);
+	heredoc.tmp_file = open(argv[1], O_RDONLY);
 	ft_heredoc_mngmt(&heredoc, argv, env);
+	unlink(argv[1]);
 	exit(0);
 }
