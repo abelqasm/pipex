@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:21:33 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/13 20:37:27 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/13 23:56:04 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int	main(int argc, char **argv, char **env)
 	int		i;
 
 	i = 0;
+	pipex.paths = ft_split(ft_path(env), ':');
+	if (ft_strncmp("here_doc", argv[1], 8) == 0)
+		ft_heredoc(argc, argv, env);
 	if (argc < 5)
 		ft_argmt_error();
 	pipex.file1 = open(argv[1], O_RDONLY);
@@ -68,7 +71,6 @@ int	main(int argc, char **argv, char **env)
 			ft_error();
 		i++;
 	}
-	pipex.paths = ft_split(ft_path(env), ':');
 	ft_pipex_bonus(&pipex, argv, env);
 	return (0);
 }

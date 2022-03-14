@@ -9,9 +9,13 @@ OBJS = $(SRCS:.c=.o)
 
 SRCSB = pipex_bonus.c \
 	pipex_bonus_child.c \
+	heredoc_bonus.c \
+	./get_next_line/get_next_line_utils.c \
+	./get_next_line/get_next_line.c \
 	./srcs/ft_errors.c \
 	./srcs/ft_split.c \
 	./srcs/ft_strncmp.c \
+	./srcs/ft_strcmp.c \
 	./srcs/ft_strjoin.c \
 	./srcs/ft_close_pipes.c
 
@@ -33,7 +37,7 @@ $(BONUS) : $(OBJSB)
 	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS) -fsanitize=address -g
 
 clean :
-	rm -rf *.o srcs/*.o
+	rm -rf *.o srcs/*.o get_next_line/*.o
 
 fclean : clean
 	rm -f $(NAME) $(BONUS)
