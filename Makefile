@@ -31,10 +31,10 @@ all : $(NAME)
 bonus : $(BONUS)
 
 $(NAME) : $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address -g
 
 $(BONUS) : $(OBJSB)
-	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS)
+	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS) -fsanitize=address -g
 
 clean :
 	rm -rf *.o srcs/*.o get_next_line/*.o

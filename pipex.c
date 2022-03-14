@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 22:00:56 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/13 22:20:23 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:08:46 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 char	*ft_path(char	**env)
 {
-	while (ft_strncmp("PATH", *env, 4))
+	while (*env && ft_strncmp("PATH", *env, 4))
 		env++;
+	if (!*env)
+		return (NULL);
 	return (*env + 5);
 }
 
@@ -49,7 +51,8 @@ int	main(int argc, char **argv, char **env)
 		ft_error();
 	if (pipe(pipex.pipe) == -1)
 		ft_error();
-	pipex.paths = ft_split(ft_path(env), ':');
+	if (ft_path(env) != NULL)
+		pipex.paths = ft_split(ft_path(env), ':');
 	ft_pipex(&pipex, argv, env);
 	return (0);
 }

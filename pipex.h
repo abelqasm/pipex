@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 22:01:06 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/12 17:40:12 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:35:07 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "unistd.h"
 # include "stdlib.h"
 # include "stdio.h"
+# include <string.h>
+# include <errno.h>
 # include <fcntl.h>
 
 typedef struct s_pipex
