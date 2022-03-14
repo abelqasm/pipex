@@ -34,7 +34,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(BONUS) : $(OBJSB)
-	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS) -fsanitize=address -g
+	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS)
 
 clean :
 	rm -rf *.o srcs/*.o get_next_line/*.o
