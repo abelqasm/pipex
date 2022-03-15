@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:27:56 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/15 22:16:28 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:15:37 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../pipex_bonus.h"
+# include "../Includes/pipex_bonus.h"
 
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);

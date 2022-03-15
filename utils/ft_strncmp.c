@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 09:38:14 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 01:16:32 by abelqasm         ###   ########.fr       */
+/*   Created: 2022/03/11 22:47:13 by abelqasm          #+#    #+#             */
+/*   Updated: 2022/03/15 23:14:43 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+#include "../Includes/pipex.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
+	while (i < n)
+	{
+		if ((s1[i] != s2[i]) || !s1[i] || !s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
-	if (s1[i] == '\n' && s2[i] == '\0')
-		return (0);
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }

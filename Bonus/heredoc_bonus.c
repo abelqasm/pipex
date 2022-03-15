@@ -6,11 +6,11 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 22:46:33 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/15 22:21:38 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:11:14 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "../Includes/pipex_bonus.h"
 
 void	ft_infile_child_heredoc(t_heredoc *heredoc, char **argv, char **env)
 {

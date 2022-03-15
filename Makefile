@@ -1,23 +1,23 @@
-SRCS = pipex.c \
-	pipex_child.c \
-	./srcs/ft_errors.c \
-	./srcs/ft_split.c \
-	./srcs/ft_strncmp.c \
-	./srcs/ft_strjoin.c
+SRCS = ./Mandatory/pipex.c \
+	./Mandatory/pipex_child.c \
+	./utils/ft_errors.c \
+	./utils/ft_split.c \
+	./utils/ft_strncmp.c \
+	./utils/ft_strjoin.c
 
 OBJS = $(SRCS:.c=.o)
 
-SRCSB = pipex_bonus.c \
-	pipex_bonus_child.c \
-	heredoc_bonus.c \
+SRCSB = ./Bonus/pipex_bonus.c \
+	./Bonus/pipex_bonus_child.c \
+	./Bonus/heredoc_bonus.c \
 	./get_next_line/get_next_line_utils.c \
 	./get_next_line/get_next_line.c \
-	./srcs/ft_errors.c \
-	./srcs/ft_split.c \
-	./srcs/ft_strncmp.c \
-	./srcs/ft_strcmp.c \
-	./srcs/ft_strjoin.c \
-	./srcs/ft_close_pipes.c
+	./utils/ft_errors.c \
+	./utils/ft_split.c \
+	./utils/ft_strncmp.c \
+	./utils/ft_strcmp.c \
+	./utils/ft_strjoin.c \
+	./utils/ft_close_pipes.c
 
 OBJSB = $(SRCSB:.c=.o)
 
@@ -41,7 +41,7 @@ ftprintf :
 	cd ./ft_printf && make
 
 clean :
-	rm -rf *.o srcs/*.o get_next_line/*.o
+	rm -rf Mandatory/*.o Bonus/*.o utils/*.o get_next_line/*.o
 	cd ./ft_printf && make clean
 
 fclean : clean

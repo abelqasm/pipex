@@ -6,11 +6,11 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:20:53 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/12 02:08:50 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:14:40 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../Includes/pipex.h"
 
 static int	ft_strlen(char *str)
 {

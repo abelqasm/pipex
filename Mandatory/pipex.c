@@ -6,11 +6,11 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 22:00:56 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 16:08:46 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:08:07 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../Includes/pipex.h"
 
 char	*ft_path(char	**env)
 {

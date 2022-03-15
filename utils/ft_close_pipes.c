@@ -6,11 +6,11 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 03:05:55 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/13 20:38:19 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:14:19 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex_bonus.h"
+#include "../Includes/pipex.h"
 
 void	ft_close_pipes(t_pipex *pipex)
 {

@@ -6,11 +6,11 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:30:19 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/11 22:47:02 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:14:25 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../Includes/pipex.h"
 
 int	word_count(char const	*str, char sep)
 {
