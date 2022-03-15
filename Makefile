@@ -25,21 +25,28 @@ CC = cc
 CFLAGS = -Werror -Wextra -Wall
 NAME = pipex
 BONUS = pipex_bonus
+FTPRINTF=./ft_printf/libftprintf.a
 
 all : $(NAME) 
 
 bonus : $(BONUS)
 
-$(NAME) : $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address -g
+$(NAME) : $(OBJS) ftprintf
+	$(CC) $(CFLAGS) $(OBJS) $(FTPRINTF) -o $(NAME)
 
-$(BONUS) : $(OBJSB)
-	$(CC) $(CFLAGS) $(OBJSB) -o $(BONUS) -fsanitize=address -g
+$(BONUS) : $(OBJSB) ftprintf
+	$(CC) $(CFLAGS) $(OBJSB) $(FTPRINTF) -o $(BONUS)
+
+ftprintf :
+	cd ./ft_printf && make
 
 clean :
 	rm -rf *.o srcs/*.o get_next_line/*.o
+	cd ./ft_printf && make clean
 
 fclean : clean
 	rm -f $(NAME) $(BONUS)
+	cd ./ft_printf && make fclean
 
 re : fclean all bonus
+	cd ./ft_printf && make re

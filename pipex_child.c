@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 22:11:32 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 16:01:32 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:28:59 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_find_cmd(char **paths, char *cmd)
 		free(cmd_path);
 		paths++;
 	}
+	ft_printf("command not found: %s\n", cmd);
+	exit(1);
 	return (NULL);
 }
 

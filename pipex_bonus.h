@@ -6,7 +6,7 @@
 /*   By: abelqasm <abelqasm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:21:24 by abelqasm          #+#    #+#             */
-/*   Updated: 2022/03/14 00:55:15 by abelqasm         ###   ########.fr       */
+/*   Updated: 2022/03/15 22:27:43 by abelqasm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_pipex
 }	t_pipex;
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_printf(const char *str, ...);
 int		ft_strcmp(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *s1, char *s2);
